@@ -22,7 +22,7 @@ jobs:
       - name: rsync deploy
         run: |
           rsync \
-          -auzrv \
+          -rlOtcv \
           --delete \
           -e "ssh -i ~/.ssh/key -p ${SSH_PORT} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" \
           ./ $SSH_USER@$SSH_HOST:$DEPLOY_PATH \
