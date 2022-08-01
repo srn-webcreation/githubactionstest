@@ -23,9 +23,10 @@ jobs:
           -auzrv \
           --delete ./ \
           -e "ssh -i key" \
-          -p ${SSH_PORT}
+          -p ${SSH_PORT} \
           $SSH_USER@$SSH_HOST:$DEPLOY_PATH \
-          --exclude ".git/" --exclude ".github/" \
+          --exclude ".git/" \
+          --exclude ".github/" \
           -o UserKnownHostsFile=/dev/null \
           -o StrictHostKeyChecking=no \
         env:
