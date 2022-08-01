@@ -21,9 +21,9 @@ jobs:
         run: |
           rsync \
           -auzrv \
-          --delete ./ \
+          --delete \
           -e "ssh -i key -p ${SSH_PORT} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" \
-          $SSH_USER@$SSH_HOST:/var/www/html \
+          ./ $SSH_USER@$SSH_HOST:$DEPLOY_PATH \
           --exclude ".git/" \
           --exclude ".github/" 
         env:
