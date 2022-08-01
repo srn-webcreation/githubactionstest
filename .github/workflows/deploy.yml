@@ -23,7 +23,7 @@ jobs:
           -auzrv \
           --delete ./ \
           -e "ssh -i key -p ${SSH_PORT} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" \
-          $SSH_USER@$SSH_HOST:$DEPLOY_PATH \
+          $SSH_USER@$SSH_HOST:/var/www/html \
           --exclude ".git/" \
           --exclude ".github/" 
         env:
